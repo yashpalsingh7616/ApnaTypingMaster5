@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSSSC Typing Practice Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>UPSSSC Exam Typing Master</h2>
+        
+        <div class="controls">
+            <select id="mode-select">
+                <option value="en">English (30 WPM Target)</option>
+                <option value="hi">Hindi Mangal Inscript (25 WPM Target)</option>
+            </select>
+            <div class="timer-display">Time Left: <span id="timer">05:00</span></div>
+        </div>
+
+        <div id="text-display" class="text-box">
+            </div>
+
+        <textarea id="typing-area" placeholder="Yahan type karein..." disabled></textarea>
+
+        <div class="stats-bar">
+            <span>WPM: <b id="wpm">0</b></span>
+            <span>Accuracy: <b id="accuracy">100</b>%</span>
+            <span>Backspaces: <b id="backspace-count">0</b></span>
+        </div>
+
+        <button id="start-btn">Start Test</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
