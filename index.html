@@ -11,64 +11,79 @@
     <div id="login-page" class="page">
         <div class="login-card">
             <h1>SARKARI TYPING MASTER</h1>
+            <p>UPSSSC Special Practice Tool</p>
             <input type="text" id="user-name" placeholder="Apna Naam Likhein">
             <button class="main-btn" onclick="handleLogin()">Login to Practice</button>
         </div>
     </div>
 
     <div id="selection-page" class="page" style="display:none;">
-        <h2>Chuniye Apni Language</h2>
+        <h2 class="section-title">CHOOSE YOUR LANGUAGE</h2>
         <div class="language-options">
             <div class="lang-card" onclick="openModule('en')">
-                <div class="icon">A</div>
+                <div class="icon">EN</div>
                 <h3>ENGLISH</h3>
                 <p>Target: 30 WPM</p>
+                <button class="select-btn">Select English</button>
             </div>
             <div class="lang-card" onclick="openModule('hi')">
-                <div class="icon">अ</div>
+                <div class="icon">हिं</div>
                 <h3>HINDI</h3>
                 <p>Mangal Inscript (25 WPM)</p>
+                <button class="select-btn">Select Hindi</button>
             </div>
         </div>
     </div>
 
     <div id="english-page" class="page" style="display:none;">
-        <nav class="navbar"><button onclick="showHome()">← Back</button> <span>English Module</span></nav>
+        <nav class="sub-nav">
+            <button class="back-link" onclick="backToLanguage()">← Back to Languages</button>
+            <h2>English Typing Module</h2>
+        </nav>
         <div class="content-wrapper">
             <div class="admin-section">
-                <h3>Admin Passages (English)</h3>
+                <h3>Exam Passages (English)</h3>
                 <div id="en-list" class="passage-list"></div>
             </div>
             <div class="user-section">
-                <h3>Custom English Text</h3>
-                <textarea id="en-custom" placeholder="Paste English text..."></textarea>
-                <button onclick="startCustom('en')">Start Typing</button>
+                <h3>Custom Practice</h3>
+                <textarea id="en-custom" placeholder="Paste your English passage here..."></textarea>
+                <button class="main-btn" onclick="startCustom('en')">Start Typing Now</button>
             </div>
         </div>
     </div>
 
     <div id="hindi-page" class="page" style="display:none;">
-        <nav class="navbar"><button onclick="showHome()">← Back</button> <span>Hindi (Mangal) Module</span></nav>
+        <nav class="sub-nav">
+            <button class="back-link" onclick="backToLanguage()">← Back to Languages</button>
+            <h2>Hindi (Mangal Inscript) Module</h2>
+        </nav>
         <div class="content-wrapper">
             <div class="admin-section">
-                <h3>Admin Passages (Hindi)</h3>
+                <h3>Exam Passages (Hindi)</h3>
                 <div id="hi-list" class="passage-list"></div>
             </div>
             <div class="user-section">
-                <h3>Custom Hindi Text</h3>
-                <textarea id="hi-custom" class="hindi-font" placeholder="Hindi text paste karein..."></textarea>
-                <button onclick="startCustom('hi')">Start Typing</button>
+                <h3>Apna Text Paste Karein</h3>
+                <textarea id="hi-custom" class="hindi-font" placeholder="Hindi text yahan paste karein..."></textarea>
+                <button class="main-btn" onclick="startCustom('hi')">Type Shuru Karein</button>
             </div>
         </div>
     </div>
 
     <div id="typing-page" class="page" style="display:none;">
-        <div class="typing-header">
-            <div id="timer">05:00</div>
-            <div id="live-wpm">WPM: 0</div>
+        <nav class="sub-nav">
+            <button class="back-link" onclick="backToPassageSelection()">← Cancel & Go Back</button>
+            <div id="timer">Time Left: 05:00</div>
+        </nav>
+        <div class="typing-container">
+            <div id="text-display" class="text-box"></div>
+            <textarea id="typing-area" placeholder="Start typing here..." spellcheck="false"></textarea>
+            <div class="live-stats">
+                <span>Net WPM: <b id="live-wpm">0</b></span>
+                <span>Backspaces: <b id="back-count">0</b></span>
+            </div>
         </div>
-        <div id="text-display" class="text-box"></div>
-        <textarea id="typing-area" spellcheck="false"></textarea>
     </div>
 
     <script src="script.js"></script>
