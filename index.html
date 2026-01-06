@@ -3,34 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UPSSSC Typing Practice Tool</title>
+    <title>UPSSSC Typing Master Pro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h2>UPSSSC Exam Typing Master</h2>
-        
-        <div class="controls">
-            <select id="mode-select">
-                <option value="en">English (30 WPM Target)</option>
-                <option value="hi">Hindi Mangal Inscript (25 WPM Target)</option>
-            </select>
-            <div class="timer-display">Time Left: <span id="timer">05:00</span></div>
+
+    <div id="login-page" class="page">
+        <div class="login-card">
+            <h1>SARKARI TYPING MASTER</h1>
+            <input type="text" id="user-name" placeholder="Apna Naam Likhein">
+            <button class="main-btn" onclick="handleLogin()">Login to Practice</button>
         </div>
-
-        <div id="text-display" class="text-box">
-            </div>
-
-        <textarea id="typing-area" placeholder="Yahan type karein..." disabled></textarea>
-
-        <div class="stats-bar">
-            <span>WPM: <b id="wpm">0</b></span>
-            <span>Accuracy: <b id="accuracy">100</b>%</span>
-            <span>Backspaces: <b id="backspace-count">0</b></span>
-        </div>
-
-        <button id="start-btn">Start Test</button>
     </div>
+
+    <div id="selection-page" class="page" style="display:none;">
+        <h2>Chuniye Apni Language</h2>
+        <div class="language-options">
+            <div class="lang-card" onclick="openModule('en')">
+                <div class="icon">A</div>
+                <h3>ENGLISH</h3>
+                <p>Target: 30 WPM</p>
+            </div>
+            <div class="lang-card" onclick="openModule('hi')">
+                <div class="icon">अ</div>
+                <h3>HINDI</h3>
+                <p>Mangal Inscript (25 WPM)</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="english-page" class="page" style="display:none;">
+        <nav class="navbar"><button onclick="showHome()">← Back</button> <span>English Module</span></nav>
+        <div class="content-wrapper">
+            <div class="admin-section">
+                <h3>Admin Passages (English)</h3>
+                <div id="en-list" class="passage-list"></div>
+            </div>
+            <div class="user-section">
+                <h3>Custom English Text</h3>
+                <textarea id="en-custom" placeholder="Paste English text..."></textarea>
+                <button onclick="startCustom('en')">Start Typing</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="hindi-page" class="page" style="display:none;">
+        <nav class="navbar"><button onclick="showHome()">← Back</button> <span>Hindi (Mangal) Module</span></nav>
+        <div class="content-wrapper">
+            <div class="admin-section">
+                <h3>Admin Passages (Hindi)</h3>
+                <div id="hi-list" class="passage-list"></div>
+            </div>
+            <div class="user-section">
+                <h3>Custom Hindi Text</h3>
+                <textarea id="hi-custom" class="hindi-font" placeholder="Hindi text paste karein..."></textarea>
+                <button onclick="startCustom('hi')">Start Typing</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="typing-page" class="page" style="display:none;">
+        <div class="typing-header">
+            <div id="timer">05:00</div>
+            <div id="live-wpm">WPM: 0</div>
+        </div>
+        <div id="text-display" class="text-box"></div>
+        <textarea id="typing-area" spellcheck="false"></textarea>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
